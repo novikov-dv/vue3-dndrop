@@ -945,11 +945,13 @@ const smoothDnD = function (element, options) {
   const containerIniter = Container(element);
   const container = containerIniter(options);
   element[containerInstance] = container;
+  Mediator.init();
   Mediator.register(container);
   return {
     dispose () {
       Mediator.unregister(container);
       container.dispose(container);
+      Mediator.destroy();
     },
     setOptions (options, merge) {
       container.setOptions(options, merge);

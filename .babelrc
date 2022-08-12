@@ -3,7 +3,7 @@
     "testing": {
       "presets":[
         ["env", { "modules": false }],
-        "react",
+        "react"
       ],
       "plugins": [
         "transform-es2015-modules-commonjs",

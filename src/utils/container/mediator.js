@@ -22,11 +22,6 @@ let sourceContainerLockAxis = null;
 let cursorStyleElement = null;
 const containerRectableWatcher = watchRectangles();
 const isMobile = Utils.isMobile();
-function listenEvents () {
-  if (typeof window !== 'undefined') {
-    addGrabListeners();
-  }
-}
 function addGrabListeners () {
   grabEvents.forEach(e => {
     window.document.addEventListener(e, onMouseDown, { passive: false });
@@ -401,7 +396,6 @@ function handleMissedDragFrame () {
 function onMouseUp () {
   removeMoveListeners();
   removeReleaseListeners();
-  removeGrabListeners();
   if (handleScroll && typeof handleScroll === 'function') handleScroll({ reset: true });
   if (cursorStyleElement) {
     removeStyle(cursorStyleElement);
@@ -645,8 +639,17 @@ function cancelDrag () {
   }
 }
 function Mediator () {
-  listenEvents();
   return {
+    init: function () {
+      if (typeof window !== 'undefined') {
+        addGrabListeners();
+      }
+    },
+    dispose: function () {
+      if (typeof window !== 'undefined') {
+        removeGrabListeners();
+      }
+    },
     register: function (container) {
       registerContainer(container);
     },

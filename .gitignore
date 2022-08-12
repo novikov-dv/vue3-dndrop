@@ -3,6 +3,7 @@ node_modules/
 dist/
 npm-debug.log
 yarn-error.log
+yarn.lock
 
 build/.rpt2_cache
 tests/coverage
