@@ -27,9 +27,9 @@
     "draggable",
     "dnd"
   ],
-  "main": "dist/vue-dndrop.js",
-  "module": "dist/vue-dndrop.esm.js",
-  "jsnext:main": "dist/vue-dndrop.esm.js",
+  "main": "dist/vue3-dndrop.js",
+  "module": "dist/vue3-dndrop.esm.js",
+  "jsnext:main": "dist/vue3-dndrop.esm.js",
   "files": [
     "dist/"
   ],
