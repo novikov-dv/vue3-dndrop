@@ -1,6 +1,6 @@
 {
   "name": "vue3-dndrop",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Vue 3 wrappers for drag and drop, forked from amendx.github.io/vue-dndrop v.1.2.8",
   "author": "novikov-dv && amendx && kutlugsahin",
   "repository": {
@@ -18,7 +18,8 @@
   },
   "keywords": [
     "Vue3",
-    "Vue.js",
+    "Vue3.js",
+    "Vue 3.x",
     "sortable",
     "drag and drop",
     "drag&drop",
@@ -42,6 +43,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/novikov-dv/vue3-dndrop/issues"
+  },
+  "dependencies": {
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "eslint": "8.17.0",

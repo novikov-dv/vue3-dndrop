@@ -1,4 +1,5 @@
 /* eslint-disable curly */
+import { h } from 'vue';
 import smoothDnD from './utils/container/container.js';
 import { reactDropHandler } from './utils/container/dropHandlers';
 import { getTagProps, validateTagProp } from './utils';
@@ -44,7 +45,7 @@ function getContainerOptions (props, context) {
 }
 
 const mapOptions = (context) => {
-  const props = Object.assign({}, context.$props, context.$listeners);
+  const props = Object.assign({}, context.$props, context.$attrs);
   return getContainerOptions(props, context);
 };
 
@@ -104,12 +105,12 @@ export default {
     'drop-ready': Function,
     dropPlaceholder: [Object, Boolean],
   },
-  render: function (createElement) {
+  render: function () {
     const tagProps = getTagProps(this);
-    return createElement(
+    return h(
       tagProps.value,
       Object.assign({}, { ref: 'container' }, tagProps.props),
-      this.$slots.default
+      this.$slots.default()
     );
   },
 };

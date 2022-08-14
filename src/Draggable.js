@@ -1,3 +1,4 @@
+import { h } from 'vue';
 import { getTagProps, validateTagProp } from './utils';
 
 const wrapChild = (createElement, ctx) => {
@@ -8,7 +9,7 @@ const wrapChild = (createElement, ctx) => {
   return createElement(
     tagProps.value,
     Object.assign({}, tagProps.props),
-    ctx.$slots.default
+    ctx.$slots.default()
   );
 };
 
@@ -24,7 +25,7 @@ export default {
       default: false,
     },
   },
-  render: function (createElement) {
-    return wrapChild(createElement, this);
-  },
+  render: function () {
+    return wrapChild(h, this);
+  }
 };
